@@ -2,7 +2,9 @@
 
 import app from './app'
 import debug from 'debug'
+import configuration from './CONFIG'
 
+const { PORT } = configuration
 const show = debug('app')
 
-app.listen(3001, () => show('app listening on port 3001'))
+app.listen(PORT, () => show(`app listening on port ${PORT}`))
