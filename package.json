@@ -4,11 +4,14 @@
   "description": "Api for madoos-blog",
   "main": "index.js",
   "dependencies": {
+    "awilix": "^3.0.1",
     "body-parser": "^1.18.2",
+    "co": "^4.6.0",
     "cors": "^2.8.4",
     "debug": "^3.1.0",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
+    "log4js": "^2.4.1",
     "method-override": "^2.3.10",
     "module-alias": "^2.0.1",
     "morgan": "^1.9.0",
@@ -37,7 +40,7 @@
   },
   "scripts": {
     "start": "npm run serve",
-    "dev": "DEBUG=* nodemon src/index.js --exec babel-node",
+    "dev": "nodemon src/index.js --exec babel-node",
     "build": "babel src -d dist",
     "serve": "node dist/index.js",
     "changelog":

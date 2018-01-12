@@ -1,31 +1,40 @@
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
+
+
 # blog-api
 
-_Api for madoos-blog_
+Api for madoos-blog using clean architecture.
 
-## Getting Started
+## Architecture Overview
 
-To install:
+This project's architecture is based on Uncle Bob's [The Clean Architecture.][1] Please at least skim through his blog
+as you will have a better understanding of how it works.
 
-    npm i --save blog-api
+We are separated this application into 4 different layers
+  1. Domains (highest)
+  2. Use cases
+  3. adapters
+  4. Infrastructure (lowest)
 
-In your project:
+The gist of it is a separation of concerns. Outer layer (lower) can reference (or know) the inner (highest) layer, however, the inner layers __can not__ know about outer layer. We accomplished this by using [Dependency Injection][2] and [Duck Typing][3] since Javascript doesn't have the concept of Interface.
 
-``` javascript
- // => Example
+```
+(highest)                                    (lowest, most detail implementation)
+domains ---> user cases ---> interfaces ---> infrastructure
 ```
 
-## Publish
+## Run server dev
 
-_Execute the command `npm run make:publish`. If UPDATE_GIT_BRANCHES is 'true' branches `develop` and `master` will be update in remote and local repo._
+* npm install
+* npm run dev
 
-```bash
+## Run server pro
 
-npm run make:publish <VERSION> <UPDATE_GIT_BRANCHES>
+* npm install
+* npm run build
+* npm start
 
-# Example: npm run make:publish 1.0.0 true
-```
 
 ## License
 
@@ -39,4 +48,6 @@ MIT © [Maurice Domínguez](maurice.ronet.dominguez@gmail.com)
 [daviddm-url]: https://david-dm.org/madoos/blog-api
 [coveralls-image]: https://coveralls.io/repos/madoos/blog-api/badge.svg
 [coveralls-url]: https://coveralls.io/r/madoos/blog-api
-
+[1]: https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
+[2]: https://martinfowler.com/articles/injection.html
+[3]: https://en.wikipedia.org/wiki/Duck_typing
