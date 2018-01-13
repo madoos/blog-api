@@ -1,26 +1,22 @@
 #!groovy
 
+#!groovy
+
 node {
 
-    def GIT_USER = "madoos"
-    def GIT_REPO = "blog-api"
-    def GIT_BRANCH = env.BRANCH_NAME
-    def GIT_TOKEN =  env.GIT_TOKEN
-    def NPM_TOKEN = env.NPM_TOKEN
-
-    stage("checkout SCM"){
+    stage("Checkout SCM"){
       checkout scm
     }
 
-    stage("Make Tests"){
-      sh "./bin/CI/test.sh ${GIT_USER} ${GIT_REPO} ${GIT_BRANCH} ${GIT_TOKEN}"
+    stage("Tests"){
+      sh "./bin/CI/test.sh"
     }
 
-    stage("publish Reports"){
+    stage("Publish Reports"){
       publishHTML([
         allowMissing: false,
         alwaysLinkToLastBuild: false,
-        keepAll: false, reportDir: "./coverage/lcov-report",
+        keepAll: false, reportDir: "./test/reports/coverage/lcov-report",
         reportFiles: "index.html",
         reportName: "Coverage Report"
       ])
@@ -28,9 +24,17 @@ node {
 
     if( env.BRANCH_NAME ==~ /.*release.*/ ){
 
-        def PACKAGE_VERSION = sh (script: "./bin/CI/get-release.sh ${GIT_BRANCH}", returnStdout: true)
+        def TAG = sh (script: "./bin/CI/get-release.sh ${GIT_BRANCH}", returnStdout: true)
 
-        stage("Publish package"){
+        stage("Build"){
+          sh "./bin/CI/build.sh ${TAG}"
+        }
+
+        stage("Push"){
+          sh "./bin/CI/build.sh ${TAG}"
+        }
+
+        stage("Deploy"){
           sh "./bin/CI/publish.sh ${GIT_USER} ${GIT_REPO} ${GIT_BRANCH} ${GIT_TOKEN} ${NPM_TOKEN} ${PACKAGE_VERSION}"
         }
 
