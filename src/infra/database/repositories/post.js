@@ -1,7 +1,7 @@
 'use strict'
 
-const post = require('./fakeData/post.json')
-const postList = require('./fakeData/postList.json')
+import post from './fakeData/post'
+import postList from './fakeData/postList'
 
 function findBySlug (slug) {
   post.slug = slug
