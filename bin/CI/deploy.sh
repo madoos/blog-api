@@ -13,8 +13,6 @@ cond() {
 # env: VERSION, RANCHER_URL, RANCHER_KEY RANCHER_SECRET
 # bash: $1(VERSION) $2(RANCHER_URL) $3(RANCHER_URL) $4(RANCHER_URL)
 
-# example ./bin/CI/deploy.sh 0.0.1 http://163.172.182.214:8080/v1/ 885B5B6B02D06E03B584 sj9gs3JUzXJGR9jYN63v5XpCUuVTWhMrzncJPprm
-
 VERSION=$(cond "$VERSION" "$VERSION" "$1")
 RANCHER_URL=$(cond "$RANCHER_URL" "$RANCHER_URL" "$2")
 RANCHER_KEY=$(cond "$RANCHER_KEY" "$RANCHER_KEY" "$3")
@@ -25,8 +23,7 @@ IMAGE="madoos/blog-api:$VERSION"
 IMAGE_LATEST="madoos/blog-api:latest"
 
 RELEASE_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-COMMIT_MSG="New: Release to $TAG"
-
+COMMIT_MSG="New: Release to $VERSION"
 
 # BUILD IMAGES
 echo "BUILDING IMAGES: $IMAGE, $IMAGE_LATEST"
@@ -51,7 +48,7 @@ echo "UPDATING BRANCHES"
 
 git add .
 git commit -m "$COMMIT_MSG"
-git tag -a $TAG -m "$COMMIT_MSG"
+git tag -a $VERSION -m "$COMMIT_MSG"
 
 git checkout develop
 git merge $RELEASE_BRANCH
