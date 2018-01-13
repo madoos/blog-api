@@ -29,11 +29,12 @@ COMMIT_MSG="New: Release to $VERSION"
 echo "BUILDING IMAGES: $IMAGE, $IMAGE_LATEST"
 
 docker build -t $IMAGE .
-docker push $IMAGE
-docker rmi -f $IMAGE
-
 docker build -t $IMAGE_LATEST .
+
+docker push $IMAGE
 docker push $IMAGE_LATEST
+
+docker rmi -f $IMAGE
 docker rmi -f $IMAGE_LATEST
 
 # CREATE CHANGELOG

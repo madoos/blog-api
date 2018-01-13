@@ -1,5 +1,15 @@
+<a name="0.0.2"></a>
+## [0.0.2](https://github.com/madoos/blog-api/compare/0.0.1...0.0.2) (2018-01-13)
+
+
+### Fix
+
+* Resolve error in image name  ([601249b219771d40fb8f7e10b0cb464bf532527d](https://github.com/madoos/blog-api/commit/601249b219771d40fb8f7e10b0cb464bf532527d))
+
+
+
 <a name="0.0.1"></a>
-## 0.0.1 (2018-01-13)
+## [0.0.1](https://github.com/madoos/blog-api/compare/832923143baf30edfe79732a62b44b3de6581f0d...0.0.1) (2018-01-13)
 
 
 ### Build
@@ -16,6 +26,7 @@
 ### New
 
 * Adds structur based on clean architecture ([0ceb580c7128d2945fc7b2a8f88e5fd008501119](https://github.com/madoos/blog-api/commit/0ceb580c7128d2945fc7b2a8f88e5fd008501119))
+* Release to ([cc6aa72ee2e2ec1790981e2b7fee2a7a61a64968](https://github.com/madoos/blog-api/commit/cc6aa72ee2e2ec1790981e2b7fee2a7a61a64968))
 
 
 
