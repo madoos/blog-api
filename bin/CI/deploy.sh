@@ -13,8 +13,10 @@ cond() {
 # env: VERSION, RANCHER_URL, RANCHER_KEY RANCHER_SECRET
 # bash: $1(VERSION) $2(RANCHER_URL) $3(RANCHER_URL) $4(RANCHER_URL)
 
+# example ./bin/CI/deploy.sh 0.0.1 http://163.172.182.214:8080/v1/ 885B5B6B02D06E03B584 sj9gs3JUzXJGR9jYN63v5XpCUuVTWhMrzncJPprm
+
 VERSION=$(cond "$VERSION" "$VERSION" "$1")
-RANCHER_URL = $(cond "$RANCHER_URL" "$RANCHER_URL" "$2")
+RANCHER_URL=$(cond "$RANCHER_URL" "$RANCHER_URL" "$2")
 RANCHER_KEY=$(cond "$RANCHER_KEY" "$RANCHER_KEY" "$3")
 RANCHER_SECRET=$(cond "$RANCHER_SECRET" "$RANCHER_SECRET" "$4")
 
@@ -70,3 +72,4 @@ rancher-compose --project-name $PROJECT_NAME \
   --access-key $RANCHER_KEY \
   --secret-key $RANCHER_SECRET \
   up -d --force-upgrade --pull --confirm-upgrade
+
