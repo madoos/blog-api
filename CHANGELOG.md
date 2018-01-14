@@ -1,3 +1,13 @@
+<a name="0.0.3"></a>
+## [0.0.3](https://github.com/madoos/blog-api/compare/0.0.2...0.0.3) (2018-01-14)
+
+
+### Build
+
+* Refactorize deploy.sh, upgrede-deployment.sh and Jenkinsfile ([f6e89cf4f5630ebad267c296b68607f529091216](https://github.com/madoos/blog-api/commit/f6e89cf4f5630ebad267c296b68607f529091216))
+
+
+
 <a name="0.0.2"></a>
 ## [0.0.2](https://github.com/madoos/blog-api/compare/0.0.1...0.0.2) (2018-01-13)
 
@@ -5,6 +15,10 @@
 ### Fix
 
 * Resolve error in image name  ([601249b219771d40fb8f7e10b0cb464bf532527d](https://github.com/madoos/blog-api/commit/601249b219771d40fb8f7e10b0cb464bf532527d))
+
+### New
+
+* Release to 0.0.2 ([7577b4daa7b8a798b583c2f8db81b03746825ad4](https://github.com/madoos/blog-api/commit/7577b4daa7b8a798b583c2f8db81b03746825ad4))
 
 
 

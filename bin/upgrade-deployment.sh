@@ -53,9 +53,9 @@ update_git_flow_branches(){
 }
 
 update_deployment(){
-  local project host key secret
-  project=$1
-  host=$2
+  local host project key secret
+  host=$1
+  project=$2
   key=$3
   secret=$4
 
@@ -84,7 +84,7 @@ main(){
   publish_image $RELEASE_IMAGE
   publish_image $LATEST_IMAGE
   update_git_flow_branches $RELEASE
-  update_deployment $RELEASE $HOST $PROJECT $KEY $SECRET
+  update_deployment $HOST $PROJECT $KEY $SECRET
 
 }
 

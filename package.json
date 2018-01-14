@@ -1,6 +1,6 @@
 {
   "name": "blog-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Api for madoos-blog",
   "main": "index.js",
   "dependencies": {
