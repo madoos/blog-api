@@ -1,7 +1,5 @@
 #!groovy
 
-#!groovy
-
 node {
 
     def GIT_USER = "madoos"
