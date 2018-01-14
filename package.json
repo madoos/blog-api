@@ -50,8 +50,7 @@
     "lint": "eslint */**/*.js -f html -o ./test/reports/linter/index.html",
     "test":
       "nyc --require babel-register --reporter=lcov --report-dir=test/reports/coverage --temp-directory=test/reports/coverage node test/index.js",
-    "make:publish": "bin/publish.sh",
-    "prepublish": "nsp check",
+    "check:dep": "nsp check",
     "pretest": "eslint .",
     "precommit": "lint-staged",
     "serve:coverage": "http-server test/reports/coverage/ -o",

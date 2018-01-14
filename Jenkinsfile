@@ -8,11 +8,11 @@ node {
       checkout scm
     }
 
-    stage("Tests"){
-      sh "./bin/CI/test.sh"
+    stage("Test"){
+      sh "./bin/test.sh"
     }
 
-    stage("Publish Reports"){
+    stage("Publish Report"){
       publishHTML([
         allowMissing: false,
         alwaysLinkToLastBuild: false,
@@ -24,18 +24,10 @@ node {
 
     if( env.BRANCH_NAME ==~ /.*release.*/ ){
 
-        def TAG = sh (script: "./bin/CI/get-release.sh ${GIT_BRANCH}", returnStdout: true)
-
-        stage("Build"){
-          sh "./bin/CI/build.sh ${TAG}"
-        }
-
-        stage("Push"){
-          sh "./bin/CI/build.sh ${TAG}"
-        }
+        def RELEASE = sh (script: "./bin/get-release.sh ${env.BRANCH_NAME}", returnStdout: true)
 
         stage("Deploy"){
-          sh "./bin/CI/publish.sh ${GIT_USER} ${GIT_REPO} ${GIT_BRANCH} ${GIT_TOKEN} ${NPM_TOKEN} ${PACKAGE_VERSION}"
+          sh "./bin/upgrade-deployment.sh ${RELEASE} ${env.RANCHER_HOST} ${env.RANCHER_KEY} ${env.RANCHER_SECRET}"
         }
 
     }
