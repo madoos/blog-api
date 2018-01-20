@@ -49,12 +49,12 @@
     "commitmsg": "validate-commit-msg -p eslint",
     "lint": "eslint */**/*.js -f html -o ./test/reports/linter/index.html",
     "test":
-      "nyc --require babel-register --reporter=lcov --report-dir=test/reports/coverage --temp-directory=test/reports/coverage node test/index.js",
+      "nyc --require babel-register --reporter=lcov --temp-directory=coverage node test/index.js",
     "check:dep": "nsp check",
     "pretest": "eslint .",
     "precommit": "lint-staged",
-    "serve:coverage": "http-server test/reports/coverage/ -o",
-    "serve:linter": "http-server test/report/linter -o"
+    "serve:coverage": "http-server coverage/ -o",
+    "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "lint-staged": {
     "*.js": ["eslint --fix", "git add"],

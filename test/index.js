@@ -6,7 +6,7 @@ import { join } from 'path'
 const mocha = new Mocha({ timeout: 3000 })
 
 const suite = [
-  join(__dirname, 'dummy.js')
+  join(__dirname, 'container.js')
 ]
 
 suite

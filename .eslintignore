@@ -1,4 +1,5 @@
 node_modules
 test
-bin/CLI/index.js
 dist
+bin
+coverage
