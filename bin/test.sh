@@ -2,7 +2,6 @@
 
 docker run \
 --privileged \
--it \
 --rm \
 -e NPM_COMMAND=test \
 -v `pwd`:/workspace \
