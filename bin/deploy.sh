@@ -2,7 +2,8 @@
 
 cat docker-compose.yml | \
 docker run \
---network=host\
+--privileged \
+--network=host \
 --rm \
 -i \
 -e EXEC=$1 \
